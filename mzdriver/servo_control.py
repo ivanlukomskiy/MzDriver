@@ -21,8 +21,10 @@ class ServoControl:
 
     def set(self, value):
         if not self.wasSet:
+            print('init gpio')
             self.initGpio()
             self.wasSet = True
+        print('setting to {}'.format(value))
         position = left_position + (right_position - left_position) * (value + 100) / 200
         self.pwm.start(position / ms_per_cycle)
 
