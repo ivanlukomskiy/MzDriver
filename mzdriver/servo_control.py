@@ -27,7 +27,7 @@ class ServoControl:
             self.wasSet = True
         print('setting to {}'.format(value))
         position = left_position + (right_position - left_position) * (value + 100) / 200
-        self.pwm.start(position / ms_per_cycle)
+        self.pwm.start(position * 100 / ms_per_cycle)
 
     def shutdown(self):
         self.pwm.stop()
