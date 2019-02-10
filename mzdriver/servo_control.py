@@ -18,6 +18,7 @@ class ServoControl:
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(pin_number, GPIO.OUT)
         self.pwm = GPIO.PWM(pin_number, frequency_hertz)
+        self.pwm.start(0)
 
     def set(self, value):
         if not self.wasSet:
