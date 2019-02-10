@@ -1,0 +1,18 @@
+import logging
+
+log = logging.getLogger(__name__)
+
+
+class DriverState:
+    vy = 0
+
+    def set_vy(self, value):
+        try:
+            fv = float(value)
+            self.vy = 100 if fv >= 100 else -100 if fv <= -100 else fv
+            log.info("VY set to {}".format(fv))
+        except ValueError:
+            log.error("Failed to set VY")
+
+
+HOLDER = DriverState()
