@@ -14,8 +14,8 @@ class ServoControl:
 
     def __init__(self):
         GPIO.setmode(GPIO.BOARD)
-        self.pwm = GPIO.PWM(pin_number, frequency_hertz)
         GPIO.setup(pin_number, GPIO.OUT)
+        self.pwm = GPIO.PWM(pin_number, frequency_hertz)
 
     def set(self, value):
         position = left_position + (right_position - left_position) * (value + 100) / 200
