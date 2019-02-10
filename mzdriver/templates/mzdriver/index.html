@@ -1,12 +1,18 @@
 {% extends "mzdriver/base.html" %}
 {% block content %}
+    {% load static %}
+    <script src="{% static "mzdriver/scripts.js" %}"></script>
 
     <div class="panel panel-default centered">
         <div class="panel-heading">
             <h3 class="panel-title">Vertical axis servo</h3>
         </div>
         <div class="panel-body">
-            Current velocity: {{ currentVY }}
+            <h4>Current velocity: <span class="badge badge-primary" id="currentVY">
+                {{ currentVY }}</span></h4>
+            {% for v in velocityOptions %}
+                <button type="button" class="btn btn-primary" onclick="setVelocity({{ v }})">{{ v }}</button>
+            {% endfor %}
         </div>
     </div>
 

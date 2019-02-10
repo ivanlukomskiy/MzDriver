@@ -10,7 +10,8 @@ from mzdriver.models import HOLDER
 def index(request):
     template = loader.get_template('mzdriver/index.html')
     context = {
-        "currentVY": HOLDER.vy
+        "currentVY": HOLDER.vy,
+        "velocityOptions": range(-100, 120, 25)
     }
     return HttpResponse(template.render(context, request))
 

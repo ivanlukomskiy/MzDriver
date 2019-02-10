@@ -21,5 +21,5 @@ from mzdriver import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path(r'servo/y/velocity', views.set_speed, name='set_speed')
+    path(r'api/servo/y/velocity', views.set_speed, name='set_speed')
 ]
