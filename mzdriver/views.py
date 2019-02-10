@@ -19,7 +19,7 @@ def index(request):
 @csrf_exempt
 def set_speed(request):
     if request.method == "PUT":
-        value = json.loads(request.body)["value"]
+        value = json.loads(request.body.decode('utf-8'))["value"]
         HOLDER.set_vy(value)
 
     if request.method == "GET" or request.method == "PUT":
