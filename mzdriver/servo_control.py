@@ -11,9 +11,8 @@ ms_per_cycle = 1000 / frequency_hertz
 
 
 class ServoControl:
-    pwm = None
 
-    def setup(self):
+    def __init__(self):
         GPIO.setmode(GPIO.BOARD)
         self.pwm = GPIO.PWM(pin_number, frequency_hertz)
         GPIO.setup(pin_number, GPIO.OUT)
